@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/zip4j_1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/org.apache.commons.io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/jarjar-1.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/bugwars.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/asm-all-5.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BugWars/jars/com.mysql.jdbc_5.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
