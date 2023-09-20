@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-package1=alexplayer.demoplayer
-=======
 package1=demoplayer
->>>>>>> Stashed changes
 package2=nullplayer
 map=Basic1
