@@ -1,8 +1,7 @@
-package alexplayer.demoplayer;
+package paudemoplayer;
 
 import bugwars.user.*;
 
-// agdadafdua
 public class UnitPlayer {
 
 	public void run(UnitController uc) {
