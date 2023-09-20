@@ -1,4 +1,4 @@
-package demoplayer;
+package thomasdemoplayer;
 
 import bugwars.user.*;
 
