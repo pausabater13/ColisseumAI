@@ -2,94 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c804908e-40bd-495d-ac22-b9962719382e" name="Changes" comment="Commiting from IDE">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jars.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BugWars.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BugWars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BugWars.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.defaults" beforeDir="false" afterPath="$PROJECT_DIR$/build.defaults" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/nullplayer/UnitPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/thomasdemoplayer/UnitPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/allclasses-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/allclasses-noframe.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/allclasses-noframe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Direction.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/Direction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/FoodInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/FoodInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/GameConstants.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/GameConstants.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Location.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/Location.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/RockInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/RockInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Team.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/Team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitController.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/UnitController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/UnitInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitType.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/UnitType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/package-frame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/bugwars/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/deprecated-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-18.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-20.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-20.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-21.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-21.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-22.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-22.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/package-list" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/package-list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/resources/fonts/dejavu.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/resources/fonts/dejavu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/ca/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/doc/ca/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20220425-132011-demoplayer-nullplayer-Basic1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/games/20220425-132011-demoplayer-nullplayer-Basic1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-160958-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-161915-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-161940-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-161958-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-162041-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20230920-162219-thomasdemoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/compile/nullplayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/compile/thomasdemoplayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Basic1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Basic1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Basic2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Basic2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Basic3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Basic3.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Basic4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Basic4.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Brackets.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Brackets.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Cookies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Cookies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Grid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Grid.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/HiddenTreasure.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/HiddenTreasure.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Hourglass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Hourglass.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Imaginary.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Imaginary.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Labyrinth.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Labyrinth.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/MathematicianComb.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/MathematicianComb.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Rocky.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Rocky.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Shuffle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Shuffle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/SoCloseAndYetSoFar.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/SoCloseAndYetSoFar.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Sparsecookies.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Sparsecookies.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Stars.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Stars.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Vertical.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Vertical.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Volleyball.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Volleyball.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maps/Zigzag.txt" beforeDir="false" afterPath="$PROJECT_DIR$/maps/Zigzag.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/description/BugWars_ca.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/description/BugWars_en.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/allclasses-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/allclasses-noframe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Direction.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/FoodInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/GameConstants.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Location.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/RockInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/Team.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitInfo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/UnitType.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-frame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-summary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/bugwars/package-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/constant-values.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/deprecated-list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/help-doc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-13.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-14.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-15.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-16.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-17.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-18.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-19.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-20.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-21.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-22.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index-files/index-9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/overview-tree.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/package-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/resources/fonts/dejavu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/ca/stylesheet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20220425-132011-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20230920-170141-alexplayer_demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20230920-170147-alexplayer_demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20230920-170153-alexplayer_demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/installation_manual/InstallationManual_ca.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/installation_manual/InstallationManual_en.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/asm-all-5.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/bugwars.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/com.mysql.jdbc_5.1.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/jarjar-1.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/org.apache.commons.io.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/zip4j_1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/compile/alexplayer_demoplayer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Basic2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Basic3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Basic4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Brackets.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Cookies.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Grid.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/HiddenTreasure.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Hourglass.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Imaginary.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Labyrinth.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/MathematicianComb.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Rocky.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Shuffle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/SoCloseAndYetSoFar.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Sparsecookies.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Stars.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Vertical.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Volleyball.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/Zigzag.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/alexplayer/demoplayer/UnitPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/demoplayer/UnitPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/demoplayer/UnitPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nullplayer/UnitPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nullplayer/UnitPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thomasdemoplayer/UnitPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/demoplayer/UnitPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nullplayer/UnitPlayer.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,19 +109,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/thoma/Documents/GitHub/ColisseumAI/BugWars_prova/BugWars",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.20721926",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thoma/Documents/GitHub/ColisseumAI/BugWars_prova/BugWars&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.20721926&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="demoplayer" />
