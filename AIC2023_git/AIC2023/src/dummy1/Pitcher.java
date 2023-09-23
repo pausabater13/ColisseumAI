@@ -40,6 +40,7 @@ public class Pitcher extends MyUnit {
             /*If there is no target, also move random*/
 
             else if (uc.canMove(dir)) uc.move(dir);
+            else if (uc.canMove(rotateLeft(dir))) uc.move(rotateLeft(dir));
         }
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
