@@ -33,13 +33,19 @@ public class HQ extends MyUnit {
         if (dirInt == 3) dir = Direction.SOUTH;
         if (dirInt == 4) dir = Direction.WEST;
 
-        /*try to recruit a batter following direction dir*/
+        /*try to recruit a batter/pitcher following direction dir*/
+        if (numPitchers() < 6){
+            if (uc.canRecruitUnit(UnitType.PITCHER, dir)) {
+                uc.recruitUnit(UnitType.PITCHER, dir);
+                uc.write(19899, uc.read(19899)+1);
+            }
+        }
+
         if (uc.canRecruitUnit(UnitType.BATTER, dir)) {
             uc.recruitUnit(UnitType.BATTER, dir);
             uc.write(20100, uc.read(20100)+1);
-            //this.unitCounter[1] += 1;
         }
-        //updateGraveyard();
+        updateGraveyard();
     }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
@@ -50,6 +56,10 @@ public class HQ extends MyUnit {
         int x = encodedLocation/120;
         int y = encodedLocation%120;
         return new Location(x-uc.read(0), y-uc.read(1));
+    }
+
+    int numPitchers(){
+        return uc.read(19899);
     }
 
     void updateGraveyard(){
