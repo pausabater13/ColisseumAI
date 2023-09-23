@@ -3,6 +3,7 @@ package dummy1;
 import aic2023.user.*;
 
 public class Pitcher extends MyUnit {
+    Direction unitDirection;
     Pitcher(UnitController unitController) {
         super(unitController);
     }
