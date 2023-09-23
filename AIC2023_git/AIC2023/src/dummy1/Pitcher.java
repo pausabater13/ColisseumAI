@@ -84,7 +84,7 @@ public class Pitcher extends MyUnit {
         else if (uc.canMove(dir)) uc.move(dir);
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
-        uc.write(myLoc-100, 2); // Marca que continua viu
+        uc.write(myLoc-100, 1); // Marca que continua viu
     }
 
 
