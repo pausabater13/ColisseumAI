@@ -30,7 +30,6 @@ public class Pitcher extends MyUnit {
 
 
         Location target = getClosestBaseOrStadium(uc);
-
         if (target != null) {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
@@ -39,47 +38,34 @@ public class Pitcher extends MyUnit {
             else if (uc.canMove(unitDirection)&& randomNumberStraight!=1 && randomNumberStraight!=2)
                 uc.move(unitDirection);
             if (uc.canMove(unitDirection.rotateRight())&& randomNumberStraight==1) {
-                unitDirection = unitDirection.rotateRight();
-                uc.move(unitDirection);
+                uc.move(unitDirection.rotateRight());
             } else if (uc.canMove(unitDirection.rotateRight().rotateRight())&& randomNumberStraight==2) {
-                unitDirection = unitDirection.rotateRight().rotateRight();
-                uc.move(unitDirection);
-            }
-            else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==1) {
-                unitDirection = unitDirection.rotateLeft();
-                uc.move(unitDirection);
+                uc.move(unitDirection.rotateRight().rotateRight());
+            } else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==1) {
+                uc.move(unitDirection.rotateLeft());
             } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())&& randomNumberStraight==1){
-                unitDirection = unitDirection.rotateLeft().rotateLeft();
-                uc.move(unitDirection);
+                uc.move(unitDirection.rotateLeft().rotateLeft());
             }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())&& randomNumberStraight==2){
-                unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
-                uc.move(unitDirection);
+                uc.move(unitDirection.rotateRight().rotateRight().rotateRight());
             } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())&& randomNumberStraight==2) {
-                unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
-                uc.move(unitDirection);
+                uc.move(unitDirection.rotateLeft().rotateLeft().rotateLeft());
             }
         }
         else if (uc.canMove(unitDirection)&& randomNumberStraight!=1 && randomNumberStraight!=2)
             uc.move(unitDirection);
         if (uc.canMove(unitDirection.rotateRight())&& randomNumberStraight==1) {
-            unitDirection = unitDirection.rotateRight();
-            uc.move(unitDirection);
-        } else if (uc.canMove(unitDirection.rotateRight().rotateRight())&& randomNumberStraight==1) {
-            unitDirection = unitDirection.rotateRight().rotateRight();
-            uc.move(unitDirection);
+            uc.move(unitDirection.rotateRight());
+        } else if (uc.canMove(unitDirection.rotateRight().rotateRight())&& randomNumberStraight==2) {
+            uc.move(unitDirection.rotateRight().rotateRight());
         }
-        else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==2) {
-            unitDirection = unitDirection.rotateLeft();
-            uc.move(unitDirection);
-        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())&& randomNumberStraight==2){
-            unitDirection = unitDirection.rotateLeft().rotateLeft();
-            uc.move(unitDirection);
-        }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())&& randomNumberStraight==1){
-            unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
-            uc.move(unitDirection);
+        else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==1) {
+            uc.move(unitDirection.rotateLeft());
+        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())&& randomNumberStraight==1){
+            uc.move(unitDirection.rotateLeft().rotateLeft());
+        }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())&& randomNumberStraight==2){
+            uc.move(unitDirection.rotateRight().rotateRight().rotateRight());
         } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())&& randomNumberStraight==2) {
-            unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
-            uc.move(unitDirection);
+            uc.move(unitDirection.rotateLeft().rotateLeft().rotateLeft());
         }/*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
 
