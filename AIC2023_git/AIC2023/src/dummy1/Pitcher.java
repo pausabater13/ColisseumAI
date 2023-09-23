@@ -45,7 +45,7 @@ public class Pitcher extends MyUnit {
 
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
-        uc.write(myLoc-100, 1); // Marca que continua viu
+        uc.write(myLoc-100, 2); // Marca que continua viu
     }
 
     int encodeLocation(Location loc){
