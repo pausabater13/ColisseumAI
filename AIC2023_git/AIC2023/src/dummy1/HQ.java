@@ -9,19 +9,20 @@ public class HQ extends MyUnit {
     }
 
     public void runRound() {
-        if (uc.getRound() == 0){
+        if (uc.getRound() < 10){
             initialMap();
             Direction[] pitcherDirections = getDirections(); // suposem que es pot spawnejar allà
             for (int i =0; i < pitcherDirections.length; i++){
                 if (uc.canRecruitUnit(UnitType.PITCHER, pitcherDirections[i]))
                     uc.recruitUnit(UnitType.PITCHER, pitcherDirections[i]);
             }
+
             uc.write(3, encodeLocation(uc.getLocation()));
             if (pitcherDirections[0] == Direction.NORTH) uc.write(2, 1);
             if (pitcherDirections[0] == Direction.EAST) uc.write(2, 2);
             if (pitcherDirections[0] == Direction.SOUTH) uc.write(2, 3);
             if (pitcherDirections[0] == Direction.WEST) uc.write(2, 4);
-        };
+        }
         int dirInt = uc.read(1);
         Direction dir = Direction.ZERO;
 
@@ -85,7 +86,11 @@ public class HQ extends MyUnit {
             counter = 0;
             for (int i=0; i<4; i++){
                 if (possibilities[i]==1){
-                    result[counter].getDirection(possibleLocations[counter].x-loc.x, possibleLocations[counter].y-loc.y);
+                    if (i == 0) result[counter] = Direction.EAST;
+                    if (i == 1) result[counter] = Direction.SOUTH;
+                    if (i == 2) result[counter] = Direction.WEST;
+                    if (i == 3) result[counter] = Direction.NORTH;
+                    counter += 1;
                 }
             }
             return result;
@@ -96,16 +101,16 @@ public class HQ extends MyUnit {
                 if (possibilities[i]==0) argZero=i;
             }
             if (argZero >1){
-                result[0].getDirection(possibleLocations[0].x-loc.x, possibleLocations[0].y-loc.y);
-                result[1].getDirection(possibleLocations[1].x-loc.x, possibleLocations[1].y-loc.y);
+                result[0] = Direction.EAST;
+                result[1] = Direction.SOUTH;
                 return result;
             }
-            result[0].getDirection(possibleLocations[2].x-loc.x, possibleLocations[2].y-loc.y);
-            result[1].getDirection(possibleLocations[3].x-loc.x, possibleLocations[3].y-loc.y);
+            result[0] = Direction.WEST;
+            result[1] = Direction.NORTH;
             return result;
         }
-        result[0].getDirection(possibleLocations[0].x-loc.x, possibleLocations[0].y-loc.y);
-        result[1].getDirection(possibleLocations[1].x-loc.x, possibleLocations[1].y-loc.y);
+        result[0] = Direction.EAST;
+        result[1] = Direction.SOUTH;
         return result;
     }
 

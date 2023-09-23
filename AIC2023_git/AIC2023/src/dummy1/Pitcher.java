@@ -4,11 +4,16 @@ import aic2023.user.*;
 
 public class Pitcher extends MyUnit {
     Direction unitDirection;
+    int myLoc;
     Pitcher(UnitController uc) {
         super(uc);
         Location baseLoc = decodeLocation(3);
         Location myLoc = uc.getLocation();
         this.unitDirection = baseLoc.directionTo(myLoc);
+        if (uc.read(20000) == 0){
+            this.myLoc = 20000;
+            uc.write(20000, 1);
+        } else this.myLoc = 20001;
     }
 
     public void runRound() {
@@ -31,6 +36,8 @@ public class Pitcher extends MyUnit {
         }
         /*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
+
+        uc.write(myLoc, encodeLocation(uc.getLocation()));
     }
 
     public void runDistributed() {
