@@ -11,7 +11,7 @@ public class Pitcher extends MyUnit {
         Location myLoc = uc.getLocation();
         this.unitDirection = baseLoc.directionTo(myLoc);
         for (int i = 0; i<100; i++) {
-            if (uc.read(20000+i) == 0) {
+            if (uc.read(19900+i) == 0) {
                 this.myLoc = 20000+i;
                 uc.write(this.myLoc, 1);
             }
