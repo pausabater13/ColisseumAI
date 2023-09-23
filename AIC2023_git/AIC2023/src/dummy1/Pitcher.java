@@ -16,7 +16,7 @@ public class Pitcher extends MyUnit {
         Direction dir = Direction.values()[randomNumberDir];
 
 
-        Location target = getTarget(uc);
+        Location target = getClosestBaseOrStadium(uc);
         if (target != null) {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
@@ -32,7 +32,7 @@ public class Pitcher extends MyUnit {
      * Returns a location with a base or stadium that does nt have a pitcher on top. If there is none
      * inside vision range, it returns null.
      */
-    Location getTarget(UnitController uc){
+    Location getClosestBaseOrStadium(UnitController uc){
         float myVision = uc.getType().getStat(UnitStat.VISION_RANGE);
         Location[] bases = uc.senseObjects(MapObject.BASE, myVision);
         Location base = getFirstAvailable(uc, bases);
