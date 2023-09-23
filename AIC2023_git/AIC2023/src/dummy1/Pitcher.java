@@ -27,21 +27,22 @@ public class Pitcher extends MyUnit {
         int randomNumberDir = (int)(Math.random()*8);
         Direction dir = Direction.values()[randomNumberDir];
 
-        if (uc.canMove(unitDirection)) uc.move(unitDirection);
-        else {
-            Location target = getClosestBaseOrStadium(uc);
-            if (target != null) {
-                /*Try to get closer to the target */
-                Direction targetDir = uc.getLocation().directionTo(target);
-                if (uc.canMove(targetDir)) uc.move(targetDir);
-                    /*Otherwise move random*/
-                else if (uc.canMove(dir)) uc.move(dir);
-            }
-            /*If there is no target, also move random*/
 
+        Location target = getClosestBaseOrStadium(uc);
+
+        if (target != null) {
+            /*Try to get closer to the target */
+            Direction targetDir = uc.getLocation().directionTo(target);
+            if (uc.canMove(targetDir)) uc.move(targetDir);
+                /*Otherwise move random*/else if (uc.canMove(unitDirection)) uc.move(unitDirection);
             else if (uc.canMove(dir)) uc.move(dir);
-            else if (uc.canMove(rotateLeft(dir))) uc.move(rotateLeft(dir));
         }
+        /*If there is no target, also move random*/
+        else if (uc.canMove(unitDirection)) uc.move(unitDirection);
+        else if (uc.canMove(dir)) uc.move(dir);
+        else if (uc.canMove(dir.rotateLeft())) uc.move(dir.rotateLeft());
+        else if (uc.canMove(dir.rotateRight())) uc.move(dir.rotateRight());
+
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
         uc.write(myLoc-100, 1); // Marca que continua viu
