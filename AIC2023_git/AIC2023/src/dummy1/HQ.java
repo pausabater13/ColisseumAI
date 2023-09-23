@@ -3,6 +3,7 @@ package dummy1;
 import aic2023.user.*;
 
 public class HQ extends MyUnit {
+    int[] unitCounter;
 
     HQ(UnitController uc) {
         super(uc);
@@ -13,8 +14,10 @@ public class HQ extends MyUnit {
             initialMap();
             Direction[] pitcherDirections = getDirections(); // suposem que es pot spawnejar allà
             for (int i =0; i < pitcherDirections.length; i++){
-                if (uc.canRecruitUnit(UnitType.PITCHER, pitcherDirections[i]))
+                if (uc.canRecruitUnit(UnitType.PITCHER, pitcherDirections[i])){
                     uc.recruitUnit(UnitType.PITCHER, pitcherDirections[i]);
+                    this.unitCounter[0] += 1;
+                }
             }
 
             uc.write(3, encodeLocation(uc.getLocation()));
@@ -32,7 +35,10 @@ public class HQ extends MyUnit {
         if (dirInt == 4) dir = Direction.WEST;
 
         /*try to recruit a batter following direction dir*/
-        if (uc.canRecruitUnit(UnitType.BATTER, dir)) uc.recruitUnit(UnitType.BATTER, dir);
+        if (uc.canRecruitUnit(UnitType.BATTER, dir)) {
+            uc.recruitUnit(UnitType.BATTER, dir);
+            this.unitCounter[1] += 1;
+        }
         updateGraveyard();
     }
     int encodeLocation(Location loc){
@@ -49,9 +55,10 @@ public class HQ extends MyUnit {
     void updateGraveyard(){
         for (int i=20000-100; i<20000; i++){
             if (uc.read(i) == 1) uc.write(i, 0); // segueix viu
-            else
-                uc.write(i+100, 0); // està mort
-
+            else {
+                uc.write(i + 100, 0); // està mort
+                this.unitCounter[0] -= 1;
+            }
         }
     }
 
@@ -80,9 +87,9 @@ public class HQ extends MyUnit {
         int[] possibilities = new int[] {1,1,1,1};
         Location loc = uc.getLocation();
         Location[] possibleLocations = new Location[4];
-        possibleLocations[0] = new Location(loc.x-8, loc.y);
+        possibleLocations[0] = new Location(loc.x+8, loc.y);
         possibleLocations[1] = new Location(loc.x, loc.y-8);
-        possibleLocations[2] = new Location(loc.x+8, loc.y);
+        possibleLocations[2] = new Location(loc.x-8, loc.y);
         possibleLocations[3] = new Location(loc.x, loc.y+8);
         int counter = 0;
         for (int i=0; i<4; i++){
