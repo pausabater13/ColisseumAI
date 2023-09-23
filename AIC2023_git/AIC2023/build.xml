@@ -1,0 +1,231 @@
+<project>
+	<!-- Load properties and input tasks -->
+	<loadproperties srcFile="build.defaults" />
+
+	<scriptdef name="check_property" language="javascript">
+		<attribute name="prop" />
+		<![CDATA[
+			var prop = attributes.get("prop");
+			if (!project.getProperty(prop)) {
+				self.fail("Invalid empty input: " + prop);
+			}
+		]]>
+	</scriptdef>
+
+	<!-- Paths -->
+	<path id="my_classpath">
+		<pathelement location="${basedir}/build/classes" />
+		<pathelement location="${basedir}/jars/aic2023.jar" />
+		<pathelement location="${basedir}/jars/asm-all-5.0.3.jar" />
+	</path>
+
+	<!-- Utils -->
+	<scriptdef language="javascript" name="replace_point">
+		<attribute name="string" />
+		<attribute name="char" />
+		<attribute name="to" />
+		project.setProperty(
+			attributes.get("to"),
+			attributes.get("string").replace(".", attributes.get("char"))
+		);
+	</scriptdef>
+
+	<!-- Macros -->
+	<macrodef name="clean">
+		<sequential>
+			<delete dir="${basedir}/build" />
+			<mkdir dir="${basedir}/build" />
+			<mkdir dir="${basedir}/build/classes" />
+			<delete dir="${basedir}/logs" />
+			<mkdir dir="${basedir}/logs" />
+			<mkdir dir="${basedir}/logs/compile" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="clean_package">
+		<attribute name="package"/>
+		<sequential>
+			<delete dir="${basedir}/build/classes/@{package}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="compile">
+		<attribute name="package"/>
+		<sequential>
+			<!-- Parameters -->
+			<replace_point string="@{package}" char="_" to="folder" />
+			<replace_point string="@{package}" char="/" to="path" />
+			<!-- Echo -->
+			<echo message="Compiling @{package}" />
+			<!-- Compile package -->
+			<record name="${basedir}/logs/compile/${folder}" action="start"
+					emacsmode="true" loglevel="warn" />
+			<javac
+					srcdir="${basedir}/src/"
+					destdir="${basedir}/build/classes"
+					includes="aic2023/**,${path}/**"
+					debug="true"
+					includeAntRuntime="false">
+				<classpath refid="my_classpath" />
+			</javac>
+			<record name="${basedir}/logs/compile/${folder}" action="stop" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="instrument">
+		<attribute name="package"/>
+		<sequential>
+			<!-- Parameters -->
+			<replace_point string="@{package}" char="_" to="folder" />
+			<replace_point string="@{package}" char="/" to="path" />
+			<!-- Echo -->
+			<echo message="Instrumenting @{package}" />
+			<!-- Execute the instrumenter to add bytecodes to package 1 -->
+			<java classname="instrumenter.Main" failonerror="true" fork="yes">
+				<classpath refid="my_classpath" />
+				<arg value="${basedir}/build/classes/${path}" />
+				<arg value="${path}" />
+				<arg value="true" />
+			</java>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="compile_instrumenter">
+		<sequential>
+			<mkdir dir="${basedir}/build/classes/instrumented" />
+			<mkdir dir="${basedir}/build/classes/instrumented/java" />
+			<copy todir="${basedir}/build/classes/instrumented/java" >
+				<fileset dir="${basedir}/java" />
+			</copy>
+			<javac
+					srcdir="${basedir}/src/"
+					destdir="${basedir}/build/classes"
+					includes="instrumenter/**"
+					debug="true"
+					includeAntRuntime="false">
+				<classpath refid="my_classpath" />
+			</javac>
+
+			<mkdir  dir="${basedir}/build/classes/instrumenter/resources" />
+			<copy todir="${basedir}/build/classes/instrumenter/resources" >
+				<fileset dir="${basedir}/src/instrumenter/resources" />
+			</copy>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="instrument_java">
+		<sequential>
+			<echo message="Instrumenting java" />
+			<java classname="instrumenter.Main" failonerror="true" fork="yes">
+				<classpath refid="my_classpath" />
+				<arg value="${basedir}/build/classes/instrumented" />
+				<arg value="DEFAULT" />
+				<arg value="false" />
+			</java>
+		</sequential>
+	</macrodef>
+
+	<!-- Targets -->
+	<macrodef name="setup">
+		<sequential>
+			<check_property prop="package1" />
+			<check_property prop="package2" />
+			<check_property prop="map" />
+			<clean />
+			<clean_package package="${package1}" />
+			<compile package="${package1}" />
+			<instrument package="${package1}" />
+			<clean_package package="${package2}" />
+			<compile package="${package2}" />
+			<instrument package="${package2}" />
+		</sequential>
+	</macrodef>
+
+	<target name="compile">
+		<check_property prop="package1" />
+		<check_property prop="package2" />
+		<clean />
+		<clean_package package="${package1}" />
+		<compile package="${package1}" />
+		<clean_package package="${package2}" />
+		<compile package="${package2}" />
+	</target>
+
+	<!-- Run tasks -->
+	<target name="run">
+		<setup />
+		<check_property prop="seed" />
+		<!-- Echo -->
+		<echo message="Running ${package1} vs ${package2} on ${map}" />
+		<!-- Run -->
+		<java classname="aic2023.main.Main" failonerror="true" fork="yes">
+			<jvmarg value="-noverify" />
+			<classpath refid="my_classpath" />
+			<arg value="${package1}" />
+			<arg value="${package2}" />
+			<arg value="${map}" />
+			<arg value="_default_" /> <!-- File name -->
+			<arg value="_default_" /> <!-- User A -->
+			<arg value="_default_" /> <!-- User B -->
+			<arg value="1" /> <!-- Print warnings -->
+			<arg value="${seed}" />
+		</java>
+	</target>
+
+	<target name="run_debug">
+		<setup />
+		<check_property prop="seed" />
+		<!-- Echo -->
+		<echo message="Running ${package1} vs ${package2} on ${map}" />
+		<!-- Run -->
+		<java classname="aic2023.main.Main" failonerror="true" fork="yes">
+			<jvmarg value="-noverify" />
+			<jvmarg value="-Xdebug"/>
+			<jvmarg value="-Xnoagent"/>
+			<jvmarg value="-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"/>
+			<classpath refid="my_classpath" />
+			<arg value="${package1}" />
+			<arg value="${package2}" />
+			<arg value="${map}" />
+			<arg value="_default_" /> <!-- File name -->
+			<arg value="_default_" /> <!-- User A -->
+			<arg value="_default_" /> <!-- User B -->
+			<arg value="1" /> <!-- Print warnings -->
+			<arg value="${seed}" />
+		</java>
+	</target>
+
+	<target name="run_no_prints">
+		<setup />
+		<check_property prop="seed" />
+		<!-- Echo -->
+		<echo message="Running ${package1} vs ${package2} on ${map}" />
+		<!-- Run -->
+		<java classname="aic2023.main.Main" failonerror="true" fork="yes">
+			<jvmarg value="-noverify" />
+			<classpath refid="my_classpath" />
+			<arg value="${package1}" />
+			<arg value="${package2}" />
+			<arg value="${map}" />
+			<arg value="_default_" /> <!-- File name -->
+			<arg value="_default_" /> <!-- User A -->
+			<arg value="_default_" /> <!-- User B -->
+			<arg value="0" /> <!-- Print warnings -->
+			<arg value="${seed}" />
+		</java>
+	</target>
+
+	<target name="run_challenge">
+		<setup />
+		<!-- Echo -->
+		<echo message="Running ${package1} vs ${package2}" />
+		<!-- Run -->
+		<java classname="aic2023.main.MainChallenge" failonerror="true" fork="yes">
+			<jvmarg value="-noverify" />
+			<classpath refid="my_classpath" />
+			<arg value="${package1}" />
+			<arg value="${package2}" />
+		</java>
+	</target>
+
+</project>
