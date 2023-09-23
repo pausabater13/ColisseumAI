@@ -8,5 +8,7 @@ public abstract class MyUnit {
     MyUnit(UnitController unitController) {
         uc = unitController;
     }
+
     abstract void runRound();
+    abstract void runDistributed();
 }

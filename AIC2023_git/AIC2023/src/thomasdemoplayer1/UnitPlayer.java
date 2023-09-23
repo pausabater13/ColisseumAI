@@ -16,7 +16,13 @@ public class UnitPlayer {
 		else me = new Catcher(uc);
 
 		while(true){
-			me.runRound();
+			
+
+			if (getFirstAvailable(uc, uc.senseObjects(MapObject.BASE, uc.getType().getStat(UnitStat.VISION_RANGE))) != null 
+			or getFirstAvailable(uc, uc.senseObjects(MapObject.WATER, uc.getType().getStat(UnitStat.VISION_RANGE))) != null 
+			or getFirstAvailable(uc, uc.senseObjects(MapObject.STADIUM, uc.getType().getStat(UnitStat.VISION_RANGE))) != null)
+				me.runDistributed();
+			} else me.runRound();
 			uc.yield(); //End of turn
 		}
 	}
