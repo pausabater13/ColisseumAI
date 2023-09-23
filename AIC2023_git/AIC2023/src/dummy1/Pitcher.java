@@ -42,6 +42,9 @@ public class Pitcher extends MyUnit {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
 
+            //If sees an agresive unit: RUN!!
+            
+            if (closeBatters(uc) != null) uc.move(closeBatters(uc));
             //First option: bases or stadiums
             if (uc.canMove(targetDir)) uc.move(targetDir);
             //Second options: 1/4 probability of turning 45º direction to left or right
@@ -108,6 +111,23 @@ public class Pitcher extends MyUnit {
 
         Location[] stadiums = uc.senseObjects(MapObject.STADIUM, myVision);
         return getFirstAvailable(uc, stadiums);
+    }
+
+    Direction closeBatters(UnitController uc){
+        float myVision = uc.getType().getStat(UnitStat.VISION_RANGE);
+        UnitInfo[] enemies = uc.senseUnits(myVision, uc.getOpponent());
+        
+        return batterDirection(uc, enemies, UnitType.BATTER);
+    }
+    
+    Direction batterDirection(UnitController uc, UnitInfo[] enemies, UnitType unitType){
+        for (UnitInfo enemy : enemies){
+            UnitInfo unit = uc.senseUnitAtLocation(enemy.getLocation());
+            if (unit == null || (unit.getTeam() != uc.getTeam() && uc.getType() == UnitType.BATTER)) {
+                return unit.getLocation().directionTo(uc.getLocation());
+            }
+            return null;
+        }
     }
 
     /**
