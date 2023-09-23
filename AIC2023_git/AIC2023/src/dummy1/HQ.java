@@ -16,13 +16,14 @@ public class HQ extends MyUnit {
                 if (uc.canRecruitUnit(UnitType.PITCHER, pitcherDirections[i]))
                     uc.recruitUnit(UnitType.PITCHER, pitcherDirections[i]);
             }
+            uc.write(3, encodeLocation(uc.getLocation()));
             if (pitcherDirections[0] == Direction.NORTH) uc.write(2, 1);
             if (pitcherDirections[0] == Direction.EAST) uc.write(2, 2);
             if (pitcherDirections[0] == Direction.SOUTH) uc.write(2, 3);
             if (pitcherDirections[0] == Direction.WEST) uc.write(2, 4);
         };
-        int dirInt = uc.read(2);
-        Direction dir;
+        int dirInt = uc.read(1);
+        Direction dir = Direction.ZERO;
 
         if (dirInt == 1) dir = Direction.NORTH;
         if (dirInt == 2) dir = Direction.EAST;
