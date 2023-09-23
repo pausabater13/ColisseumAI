@@ -63,7 +63,6 @@ public class Pitcher extends MyUnit {
         if ((int)(Math.random()*4)==1 or !uc.canMove(unitDirection)){
             if (uc.canMove(rUnitDir) && (int)(Math.random()*2)==1) {uc.move(rUnitDir);unitDirection=rUnitDir;}
             else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);unitDirection=lUnitDir;}
-
             //If not able to go: turn right or left 90º
             else if ((int)(Math.random()*2)==1 && uc.canMove(rrUnitDir)) {uc.move(rrUnitDir);unitDirection=rrUnitDir;}
             else if ((int)(Math.random()*2)==1 && uc.canMove(llUnitDir)) {uc.move(llUnitDir);unitDirection=llUnitDir;}
