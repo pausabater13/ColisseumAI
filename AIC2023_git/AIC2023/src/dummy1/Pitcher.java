@@ -42,29 +42,39 @@ public class Pitcher extends MyUnit {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
 
+            //First option: bases or stadiums
             if (uc.canMove(targetDir)) uc.move(targetDir);
-            else if (k!=2) {
-                if (uc.canMove(unitDirection)&& k!=1) uc.move(unitDirection);
-            } else if (k==1){
-                if (uc.canMove(rUnitDir)) uc.move(rUnitDir);
-                else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);}
-                else if (uc.canMove(llUnitDir)) {uc.move(llUnitDir); unitDirection=llUnitDir;}
-            } else if (k==2){
-                if (uc.canMove(rrUnitDir)&& k==2) uc.move(rrUnitDir);
-                else if (uc.canMove(rrrUnitDir)) uc.move(rrrUnitDir);
-                else if (uc.canMove(lllUnitDir)) {uc.move(lllUnitDir); unitDirection=rrUnitDir;}
-            }
-        /*Otherwise move random*/
+            //Second options: 1/4 probability of turning 45º direction to left or right
+            else if ((int)(Math.random()*4)==1 or !uc.canMove(unitDirection)){
+                if (uc.canMove(rUnitDir) && (int)(Math.random()*2)==1) {uc.move(rUnitDir);unitDirection=rUnitDir;}
+                else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);unitDirection=lUnitDir;}
+
+                //If not able to go: turn right or left 90º
+                else if ((int)(Math.random()*2)==1 && uc.canMove(rrUnitDir)) {uc.move(rrUnitDir);unitDirection=rrUnitDir;}
+                else if ((int)(Math.random()*2)==1 && uc.canMove(llUnitDir)) {uc.move(llUnitDir);unitDirection=llUnitDir;}
+
+                //If not able to go: turn right or left º
+                else if ((int)(Math.random()*2)==1 && uc.canMove(rrrUnitDir)) {uc.move(rrrUnitDir);unitDirection=rrrUnitDir;}
+                else if ((int)(Math.random()*2)==1 && uc.canMove(lllUnitDir)) {uc.move(lllUnitDir);unitDirection=lllUnitDir;}
+            //The other 3/4 probability of continuing the unitDirection
+            } else if (uc.canMove(unitDirection)) uc.move(unitDirection);
         }
-        else if (uc.canMove(unitDirection)&& k!=1 && k!=2) uc.move(unitDirection);
-        else if (uc.canMove(rUnitDir) && k==1) uc.move(rUnitDir);
-        else if (uc.canMove(rrUnitDir)&& k==2) uc.move(rrrUnitDir);
-        else if (uc.canMove(lUnitDir) && k==1) uc.move(lUnitDir);
-        else if (uc.canMove(llUnitDir) && k==1) uc.move(llUnitDir);
-        else if (uc.canMove(rrrUnitDir) && k==2) uc.move(rrrUnitDir);
-        else if (uc.canMove(lllUnitDir)&& k==2) uc.move(lllUnitDir);
+        /*Otherwise move random*/
+        if ((int)(Math.random()*4)==1 or !uc.canMove(unitDirection)){
+            if (uc.canMove(rUnitDir) && (int)(Math.random()*2)==1) {uc.move(rUnitDir);unitDirection=rUnitDir;}
+            else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);unitDirection=lUnitDir;}
+
+            //If not able to go: turn right or left 90º
+            else if ((int)(Math.random()*2)==1 && uc.canMove(rrUnitDir)) {uc.move(rrUnitDir);unitDirection=rrUnitDir;}
+            else if ((int)(Math.random()*2)==1 && uc.canMove(llUnitDir)) {uc.move(llUnitDir);unitDirection=llUnitDir;}
+
+            //If not able to go: turn right or left º
+            else if ((int)(Math.random()*2)==1 && uc.canMove(rrrUnitDir)) {uc.move(rrrUnitDir);unitDirection=rrrUnitDir;}
+            else if ((int)(Math.random()*2)==1 && uc.canMove(lllUnitDir)) {uc.move(lllUnitDir);unitDirection=lllUnitDir;}
+        //The other 3/4 probability of continuing the unitDirection
+        } else if (uc.canMove(unitDirection)) uc.move(unitDirection);
         /*If there is no target, also move random*/
-        else if (uc.canMove(dir)) uc.move(dir);
+        //else if (uc.canMove(dir)) uc.move(dir);
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
         uc.write(myLoc-100, 1); // Marca que continua viu
