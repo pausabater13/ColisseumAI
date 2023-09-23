@@ -38,10 +38,10 @@ public class Batter extends MyUnit {
     }
 
     public Location getInitialAssignedSpot() {
-        Location[] ourBasesAndStadiums = getOurBasesAndStadiums();
+        Location[] ourPitchers = getOurPitchers();
         Location enemyHQ = getEnemyHQ();
-        if (ourBasesAndStadiums != null) {
-            return ourBasesAndStadiums[0];
+        if (ourPitchers != null) {
+            return ourPitchers[0];
         }
         if (enemyHQ != null) {
             return enemyHQ;
@@ -49,7 +49,7 @@ public class Batter extends MyUnit {
         return null;
     }
 
-    public Location[] getOurBasesAndStadiums() {
+    public Location[] getOurPitchers() {
         int encodedLocationOfFirstPlace = uc.read(20000);
         int encodedLocationOfSecondPlace = uc.read(20001);
         if (encodedLocationOfFirstPlace == 0 && encodedLocationOfSecondPlace == 0) {
@@ -102,17 +102,17 @@ public class Batter extends MyUnit {
     }
 
     public void changeAssignedLocation() {
-        Location[] ourBasesAndStadiums = getOurBasesAndStadiums();
+        Location[] ourPitchers = getOurPitchers();
         Location enemyHQ = getEnemyHQ();
-        int index = getindexOfLocationInArray(ourBasesAndStadiums);
+        int index = getindexOfLocationInArray(ourPitchers);
         if (index != -1) {
-            if (index == ourBasesAndStadiums.length - 1)
+            if (index == ourPitchers.length - 1)
                 assignedSpot = enemyHQ;
             else
-                assignedSpot = ourBasesAndStadiums[index + 1];
+                assignedSpot = ourPitchers[index + 1];
         } else if (assignedSpot == enemyHQ && enemyHQ != null) {
-            if (ourBasesAndStadiums != null) {
-                assignedSpot = ourBasesAndStadiums[0];
+            if (ourPitchers != null) {
+                assignedSpot = ourPitchers[0];
             }
         } else { //null
             assignedSpot = getInitialAssignedSpot();

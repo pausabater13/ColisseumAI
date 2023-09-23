@@ -69,7 +69,7 @@ public class Pitcher extends MyUnit {
         Location iterator = uc.getLocation();
         bool found = false;
         for (int i = 1; i < myVision; i++) {
-            if(us.canMove(uc.getLocation().add(unitDirection)))
+            if(uc.canMove(uc.getLocation().add(unitDirection)))
                 iterator = uc.getLocation().add(unitDirection);
             if(senseObjectAtLocation(iterator, false) != GRASS)
                 
