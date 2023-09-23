@@ -21,28 +21,28 @@ public class Pitcher extends MyUnit {
         Team opponent = uc.getOpponent();
 
         /*Get random direction*/
+
         int randomNumberDir = (int)(Math.random()*8);
         Direction dir = Direction.values()[randomNumberDir];
 
+        if (uc.canMove(unitDirection)) uc.move(unitDirection);
+        else {
+            Location target = getClosestBaseOrStadium(uc);
+            if (target != null) {
+                /*Try to get closer to the target */
+                Direction targetDir = uc.getLocation().directionTo(target);
+                if (uc.canMove(targetDir)) uc.move(targetDir);
+                    /*Otherwise move random*/
+                else if (uc.canMove(dir)) uc.move(dir);
+            }
+            /*If there is no target, also move random*/
 
-
-        Location target = getClosestBaseOrStadium(uc);
-        if (target != null) {
-            /*Try to get closer to the target */
-            Direction targetDir = uc.getLocation().directionTo(target);
-            if (uc.canMove(targetDir)) uc.move(targetDir);
-                /*Otherwise move random*/
             else if (uc.canMove(dir)) uc.move(dir);
         }
-        /*If there is no target, also move random*/
-        else if (uc.canMove(dir)) uc.move(dir);
 
         uc.write(myLoc, encodeLocation(uc.getLocation()));
     }
 
-    public void runDistributed() {
-
-    }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
     }
@@ -65,8 +65,7 @@ public class Pitcher extends MyUnit {
         if (base != null) return base;
 
         Location[] stadiums = uc.senseObjects(MapObject.STADIUM, myVision);
-        Location stadium = getFirstAvailable(uc, stadiums);
-        return stadium;
+        return getFirstAvailable(uc, stadiums);
     }
 
     /**
