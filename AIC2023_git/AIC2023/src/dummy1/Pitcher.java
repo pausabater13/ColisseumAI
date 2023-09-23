@@ -45,7 +45,7 @@ public class Pitcher extends MyUnit {
             //First option: bases or stadiums
             if (uc.canMove(targetDir)) uc.move(targetDir);
             //Second options: 1/4 probability of turning 45º direction to left or right
-            else if ((int)(Math.random()*4)==1 or !uc.canMove(unitDirection)){
+            else if (((int)(Math.random()*4)==1) || (!uc.canMove(unitDirection))){
                 if (uc.canMove(rUnitDir) && (int)(Math.random()*2)==1) {uc.move(rUnitDir);unitDirection=rUnitDir;}
                 else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);unitDirection=lUnitDir;}
 
@@ -60,7 +60,7 @@ public class Pitcher extends MyUnit {
             } else if (uc.canMove(unitDirection)) uc.move(unitDirection);
         }
         /*Otherwise move random*/
-        if ((int)(Math.random()*4)==1 or !uc.canMove(unitDirection)){
+        if (((int)(Math.random()*4)==1) || (!uc.canMove(unitDirection))){
             if (uc.canMove(rUnitDir) && (int)(Math.random()*2)==1) {uc.move(rUnitDir);unitDirection=rUnitDir;}
             else if (uc.canMove(lUnitDir)) {uc.move(lUnitDir);unitDirection=lUnitDir;}
             //If not able to go: turn right or left 90º
