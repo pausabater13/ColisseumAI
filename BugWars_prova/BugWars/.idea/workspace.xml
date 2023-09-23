@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c804908e-40bd-495d-ac22-b9962719382e" name="Changes" comment="Commiting from IDE">
-      <change beforePath="$PROJECT_DIR$/build.defaults" beforeDir="false" afterPath="$PROJECT_DIR$/build.defaults" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +28,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/thoma/Documents/GitHub/ColisseumAI/BugWars_prova/BugWars",
+    "last_opened_file_path": "C:/Users/thoma/Documents/GitHub/ColisseumAI/AIC2023_git/AIC2023",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.20721926",
     "project.structure.side.proportion": "0.2",
