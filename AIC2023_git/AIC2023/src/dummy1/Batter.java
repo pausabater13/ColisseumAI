@@ -39,34 +39,46 @@ public class Batter extends MyUnit {
 
     public Location getInitialAssignedSpot() {
         Location[] ourPitchers = getOurPitchers();
-        Location enemyHQ = getEnemyHQ();
+        //Location enemyHQ = getEnemyHQ();
         if (ourPitchers != null) {
             return ourPitchers[0];
         }
-        if (enemyHQ != null) {
-            return enemyHQ;
-        }
+        //if (enemyHQ != null) {
+        //    return enemyHQ;
+        //}
         return null;
     }
 
     public Location[] getOurPitchers() {
-        int encodedLocationOfFirstPlace = uc.read(20000);
-        int encodedLocationOfSecondPlace = uc.read(20001);
-        if (encodedLocationOfFirstPlace == 0 && encodedLocationOfSecondPlace == 0) {
-            return null;
+        int[] livingPitcherIndexes = getLivingPitcherIndexes();
+        Location[] output = new Location[livingPitcherIndexes.length];
+        for (int i = 0; i < output.length; ++i) {
+            output[i] = decodeLocation(livingPitcherIndexes[i]);
         }
-        if (encodedLocationOfSecondPlace == 0) {
-            return new Location[]{decodeLocation(20000)};
-        }
-        if (encodedLocationOfFirstPlace == 0) {
-            return new Location[]{decodeLocation(20001)};
-        }
-        return new Location[]{decodeLocation(20000), decodeLocation(20001)};
+        return output;
     }
 
-    public Location getEnemyHQ() {
-        return null;
+    public int[] getLivingPitcherIndexes() {
+        int num = numPitchers();
+        int[] output = new int[num];
+        int j = 0;
+        for (int i = 19900; i < 20000 && num > 0; ++i) {
+            if (uc.read(i) > 0) {
+                num = num - 1;
+                output[j] = i + 100;
+                j += 1;
+            }
+        }
+        return output;
     }
+
+    int numPitchers(){
+        return uc.read(19899);
+    }
+
+    //public Location getEnemyHQ() {
+    //    return null;
+    //}
 
     public void goToAssignedSpot() {
         if (assignedSpot == null) {
@@ -103,17 +115,17 @@ public class Batter extends MyUnit {
 
     public void changeAssignedLocation() {
         Location[] ourPitchers = getOurPitchers();
-        Location enemyHQ = getEnemyHQ();
+        //Location enemyHQ = getEnemyHQ();
         int index = getindexOfLocationInArray(ourPitchers);
         if (index != -1) {
-            if (index == ourPitchers.length - 1)
-                assignedSpot = enemyHQ;
-            else
-                assignedSpot = ourPitchers[index + 1];
-        } else if (assignedSpot == enemyHQ && enemyHQ != null) {
-            if (ourPitchers != null) {
-                assignedSpot = ourPitchers[0];
-            }
+            //if (index == ourPitchers.length - 1)
+                //assignedSpot = enemyHQ;
+            //else
+            assignedSpot = ourPitchers[index + 1];
+        //} else if (assignedSpot == enemyHQ && enemyHQ != null) {
+            //if (ourPitchers != null) {
+                //assignedSpot = ourPitchers[0];
+            //}
         } else { //null
             assignedSpot = getInitialAssignedSpot();
         }

@@ -34,14 +34,55 @@ public class Pitcher extends MyUnit {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
             if (uc.canMove(targetDir)) uc.move(targetDir);
-                /*Otherwise move random*/else if (uc.canMove(unitDirection)) uc.move(unitDirection);
-            else if (uc.canMove(dir)) uc.move(dir);
+                /*Otherwise move random*/
+            else if (uc.canMove(unitDirection))
+                uc.move(unitDirection);
+            if (uc.canMove(unitDirection.rotateRight())) {
+                unitDirection = unitDirection.rotateRight();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateRight().rotateRight())) {
+                unitDirection = unitDirection.rotateRight().rotateRight();
+                uc.move(unitDirection);
+            }
+            else if (uc.canMove(unitDirection.rotateLeft())) {
+                unitDirection = unitDirection.rotateLeft();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())){
+                unitDirection = unitDirection.rotateLeft().rotateLeft();
+                uc.move(unitDirection);
+            }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())){
+                unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())) {
+                unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
+                uc.move(unitDirection);
+            }
         }
-        /*If there is no target, also move random*/
-        else if (uc.canMove(unitDirection)) uc.move(unitDirection);
+        else if (uc.canMove(unitDirection))
+            uc.move(unitDirection);
+        if (uc.canMove(unitDirection.rotateRight())) {
+            unitDirection = unitDirection.rotateRight();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateRight().rotateRight())) {
+            unitDirection = unitDirection.rotateRight().rotateRight();
+            uc.move(unitDirection);
+        }
+        else if (uc.canMove(unitDirection.rotateLeft())) {
+            unitDirection = unitDirection.rotateLeft();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())){
+            unitDirection = unitDirection.rotateLeft().rotateLeft();
+            uc.move(unitDirection);
+        }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())){
+            unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())) {
+            unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
+            uc.move(unitDirection);
+        }/*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
-        else if (uc.canMove(dir.rotateLeft())) uc.move(dir.rotateLeft());
-        else if (uc.canMove(dir.rotateRight())) uc.move(dir.rotateRight());
+
+
 
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
