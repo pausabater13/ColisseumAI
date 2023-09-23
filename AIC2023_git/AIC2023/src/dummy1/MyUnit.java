@@ -7,9 +7,11 @@ import aic2023.user.UnitController;
 public abstract class MyUnit {
     UnitController uc;
     PathFinding pf;
+
     MyUnit(UnitController unitController) {
         uc = unitController;
         pf = new PathFinding(uc);
     }
-    abstract void runRound();
 
+    abstract void runRound();
+}
