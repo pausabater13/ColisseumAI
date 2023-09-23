@@ -126,8 +126,8 @@ public class Pitcher extends MyUnit {
             if (unit == null || (unit.getTeam() != uc.getTeam() && uc.getType() == UnitType.BATTER)) {
                 return unit.getLocation().directionTo(uc.getLocation());
             }
-            return null;
         }
+        return null;
     }
 
     /**
