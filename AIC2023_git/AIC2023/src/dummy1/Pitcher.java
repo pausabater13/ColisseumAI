@@ -13,7 +13,7 @@ public class Pitcher extends MyUnit {
         for (int i = 0; i<100; i++) {
             if (uc.read(20000+i) == 0) {
                 this.myLoc = 20000+i;
-                uc.write(20000+i, 1);
+                uc.write(this.myLoc, 1);
             }
         }
     }
@@ -26,6 +26,7 @@ public class Pitcher extends MyUnit {
 
         int randomNumberDir = (int)(Math.random()*8);
         Direction dir = Direction.values()[randomNumberDir];
+        int randomNumberStraight = (int)(Math.random()*6);
 
 
         Location target = getClosestBaseOrStadium(uc);
@@ -34,19 +35,63 @@ public class Pitcher extends MyUnit {
             /*Try to get closer to the target */
             Direction targetDir = uc.getLocation().directionTo(target);
             if (uc.canMove(targetDir)) uc.move(targetDir);
-                /*Otherwise move random*/else if (uc.canMove(unitDirection)) uc.move(unitDirection);
-            else if (uc.canMove(dir)) uc.move(dir);
+                /*Otherwise move random*/
+            else if (uc.canMove(unitDirection)&& randomNumberStraight!=1 && randomNumberStraight!=2)
+                uc.move(unitDirection);
+            if (uc.canMove(unitDirection.rotateRight())&& randomNumberStraight==1) {
+                unitDirection = unitDirection.rotateRight();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateRight().rotateRight())&& randomNumberStraight==2) {
+                unitDirection = unitDirection.rotateRight().rotateRight();
+                uc.move(unitDirection);
+            }
+            else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==1) {
+                unitDirection = unitDirection.rotateLeft();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())&& randomNumberStraight==1){
+                unitDirection = unitDirection.rotateLeft().rotateLeft();
+                uc.move(unitDirection);
+            }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())&& randomNumberStraight==2){
+                unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
+                uc.move(unitDirection);
+            } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())&& randomNumberStraight==2) {
+                unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
+                uc.move(unitDirection);
+            }
         }
-        /*If there is no target, also move random*/
-        else if (uc.canMove(unitDirection)) uc.move(unitDirection);
+        else if (uc.canMove(unitDirection)&& randomNumberStraight!=1 && randomNumberStraight!=2)
+            uc.move(unitDirection);
+        if (uc.canMove(unitDirection.rotateRight())&& randomNumberStraight==1) {
+            unitDirection = unitDirection.rotateRight();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateRight().rotateRight())&& randomNumberStraight==1) {
+            unitDirection = unitDirection.rotateRight().rotateRight();
+            uc.move(unitDirection);
+        }
+        else if (uc.canMove(unitDirection.rotateLeft())&& randomNumberStraight==2) {
+            unitDirection = unitDirection.rotateLeft();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft())&& randomNumberStraight==2){
+            unitDirection = unitDirection.rotateLeft().rotateLeft();
+            uc.move(unitDirection);
+        }else if (uc.canMove(unitDirection.rotateRight().rotateRight().rotateRight())&& randomNumberStraight==1){
+            unitDirection = unitDirection.rotateRight().rotateRight().rotateRight();
+            uc.move(unitDirection);
+        } else if (uc.canMove(unitDirection.rotateLeft().rotateLeft().rotateLeft())&& randomNumberStraight==2) {
+            unitDirection = unitDirection.rotateLeft().rotateLeft().rotateLeft();
+            uc.move(unitDirection);
+        }/*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
-        else if (uc.canMove(dir.rotateLeft())) uc.move(dir.rotateLeft());
-        else if (uc.canMove(dir.rotateRight())) uc.move(dir.rotateRight());
-
 
         uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
         uc.write(myLoc-100, 2); // Marca que continua viu
     }
+
+
+
+
+
+
 
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
