@@ -20,6 +20,7 @@ public class Pitcher extends MyUnit {
         Direction dir = Direction.values()[randomNumberDir];
 
 
+
         Location target = getClosestBaseOrStadium(uc);
         if (target != null) {
             /*Try to get closer to the target */
@@ -30,6 +31,10 @@ public class Pitcher extends MyUnit {
         }
         /*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
+    }
+
+    public void runDistributed() {
+
     }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);

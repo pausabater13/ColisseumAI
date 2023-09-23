@@ -10,5 +10,4 @@ public abstract class MyUnit {
     }
 
     abstract void runRound();
-    abstract void runDistributed();
 }

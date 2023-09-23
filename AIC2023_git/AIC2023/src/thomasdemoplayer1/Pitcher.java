@@ -12,26 +12,6 @@ public class Pitcher extends MyUnit {
     /* Si està a prop del HQ i no té res important al voltant, escull una
     direcció adequada de expedició. Si està a distància mitjana, prosegueix
      aquesta direcció*/
-    public void runDistributed(Direction unitDirection) {
-        /*enemy team*/
-        Team opponent = uc.getOpponent();
-
-        /*Get random direction*/
-        int randomNumberDir = (int)(Math.random()*8);
-        Direction dir = Direction.values()[randomNumberDir];
-
-
-        Location target = getDistributedTarget(uc, unitDirection);
-        if (target != null) {
-            /*Try to get closer to the target */
-            Direction targetDir = uc.getLocation().directionTo(target);
-            if (uc.canMove(targetDir)) uc.move(targetDir);
-                /*Otherwise move random*/
-            else if (uc.canMove(dir)) uc.move(dir);
-        }
-        /*If there is no target, also move random*/
-        else if (uc.canMove(dir)) uc.move(dir);
-    }
 
     public void runRound() {
         /*enemy team*/
@@ -51,6 +31,10 @@ public class Pitcher extends MyUnit {
         }
         /*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
+    }
+
+    void runDistributed(Direction direction) {
+
     }
 
     /**
@@ -83,10 +67,13 @@ public class Pitcher extends MyUnit {
         float myVision = uc.getType().getStat(UnitStat.VISION_RANGE);
 
         Location iterator = uc.getLocation();
+        bool found = false;
         for (int i = 1; i < myVision; i++) {
             if(us.canMove(uc.getLocation().add(unitDirection)))
                 iterator = uc.getLocation().add(unitDirection);
-            if(senseObjectAtLocation(iterator, false))
+            if(senseObjectAtLocation(iterator, false) != GRASS)
+                
+
             
         }
 

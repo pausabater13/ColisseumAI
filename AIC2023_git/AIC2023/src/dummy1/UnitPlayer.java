@@ -20,6 +20,7 @@ public class UnitPlayer {
 
 		while(true){
 			me.runRound();
+//			me.runDistributed();
 			uc.yield(); //End of turn
 		}
 	}
