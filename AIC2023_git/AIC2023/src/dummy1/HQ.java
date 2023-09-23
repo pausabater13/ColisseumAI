@@ -9,7 +9,7 @@ public class HQ extends MyUnit {
     }
 
     public void runRound() {
-        if (uc.getRound() < 10){
+        if (uc.getRound() == 0){
             initialMap();
             Direction[] pitcherDirections = getDirections(); // suposem que es pot spawnejar allà
             for (int i =0; i < pitcherDirections.length; i++){
@@ -23,7 +23,7 @@ public class HQ extends MyUnit {
             if (pitcherDirections[0] == Direction.SOUTH) uc.write(2, 3);
             if (pitcherDirections[0] == Direction.WEST) uc.write(2, 4);
         }
-        int dirInt = uc.read(1);
+        int dirInt = uc.read(2);
         Direction dir = Direction.ZERO;
 
         if (dirInt == 1) dir = Direction.NORTH;
@@ -31,8 +31,9 @@ public class HQ extends MyUnit {
         if (dirInt == 3) dir = Direction.SOUTH;
         if (dirInt == 4) dir = Direction.WEST;
 
-        /*If this unit is a HQ, try to recruit a pitcher following direction dir*/
+        /*try to recruit a batter following direction dir*/
         if (uc.canRecruitUnit(UnitType.BATTER, dir)) uc.recruitUnit(UnitType.BATTER, dir);
+        updateGraveyard();
     }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
@@ -43,6 +44,15 @@ public class HQ extends MyUnit {
         int x = encodedLocation/120;
         int y = encodedLocation%120;
         return new Location(x-uc.read(0), y-uc.read(1));
+    }
+
+    void updateGraveyard(){
+        for (int i=20000-100; i<20000; i++){
+            if (uc.read(i) == 1) uc.write(i, 0); // segueix viu
+            else
+                uc.write(i+100, 0); // està mort
+
+        }
     }
 
     void initialMap() {

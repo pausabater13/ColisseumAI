@@ -10,10 +10,12 @@ public class Pitcher extends MyUnit {
         Location baseLoc = decodeLocation(3);
         Location myLoc = uc.getLocation();
         this.unitDirection = baseLoc.directionTo(myLoc);
-        if (uc.read(20000) == 0){
-            this.myLoc = 20000;
-            uc.write(20000, 1);
-        } else this.myLoc = 20001;
+        for (int i = 0; i<100; i++) {
+            if (uc.read(20000+i) == 0) {
+                this.myLoc = 20000+i;
+                uc.write(20000+i, 1);
+            }
+        }
     }
 
     public void runRound() {
@@ -36,7 +38,8 @@ public class Pitcher extends MyUnit {
         /*If there is no target, also move random*/
         else if (uc.canMove(dir)) uc.move(dir);
 
-        uc.write(myLoc, encodeLocation(uc.getLocation()));
+        uc.write(myLoc, encodeLocation(uc.getLocation())); // Marca on està localitzat
+        uc.write(myLoc-100, 1); // Marca que continua viu
     }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
