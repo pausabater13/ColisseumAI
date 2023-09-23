@@ -3,7 +3,6 @@ package dummy1;
 import aic2023.user.*;
 
 public class HQ extends MyUnit {
-    int[] unitCounter;
 
     HQ(UnitController uc) {
         super(uc);
@@ -16,7 +15,7 @@ public class HQ extends MyUnit {
             for (int i =0; i < pitcherDirections.length; i++){
                 if (uc.canRecruitUnit(UnitType.PITCHER, pitcherDirections[i])){
                     uc.recruitUnit(UnitType.PITCHER, pitcherDirections[i]);
-                    this.unitCounter[0] += 1;
+                    uc.write(19899, uc.read(19899)+1);
                 }
             }
 
@@ -37,9 +36,10 @@ public class HQ extends MyUnit {
         /*try to recruit a batter following direction dir*/
         if (uc.canRecruitUnit(UnitType.BATTER, dir)) {
             uc.recruitUnit(UnitType.BATTER, dir);
-            this.unitCounter[1] += 1;
+            uc.write(20100, uc.read(20100)+1);
+            //this.unitCounter[1] += 1;
         }
-        updateGraveyard();
+        //updateGraveyard();
     }
     int encodeLocation(Location loc){
         return 120*(loc.x+uc.read(0))+loc.y+uc.read(1);
@@ -54,10 +54,10 @@ public class HQ extends MyUnit {
 
     void updateGraveyard(){
         for (int i=20000-100; i<20000; i++){
-            if (uc.read(i) == 1) uc.write(i, 0); // segueix viu
-            else {
+            if (uc.read(i) == 2) uc.write(i, 1); // segueix viu
+            else if (uc.read(i) == 1){
                 uc.write(i + 100, 0); // està mort
-                this.unitCounter[0] -= 1;
+                uc.write(19899, uc.read(19899)-1);
             }
         }
     }
