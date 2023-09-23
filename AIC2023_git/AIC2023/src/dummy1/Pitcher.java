@@ -26,7 +26,7 @@ public class Pitcher extends MyUnit {
 
         int randomNumberDir = (int)(Math.random()*8);
         Direction dir = Direction.values()[randomNumberDir];
-        int randomNumberStraight = (int)(Math.random()*6);
+        int randomNumberStraight = (int)(Math.random()*10);
 
 
         Location target = getClosestBaseOrStadium(uc);
