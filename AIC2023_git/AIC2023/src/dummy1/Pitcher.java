@@ -22,15 +22,14 @@ public class Pitcher extends MyUnit {
         /*enemy team*/
         Team opponent = uc.getOpponent();
 
-        /*Get random direction*/
-
+        /*Get random direction, only used if direction not found*/
         int randomNumberDir = (int)(Math.random()*8);
         Direction dir = Direction.values()[randomNumberDir];
         int k = (int)(Math.random()*10);
 
-        Location target = getClosestBaseOrStadium(uc);
-
+        /*Get certain direction*/
         Direction checkedDir;
+        Location target = getClosestBaseOrStadium(uc);
         //If sees an agresive unit: RUN!!
         if (closeBatters(uc) != null) checkedDir = goDirection(closeBatters(uc));
             //First option: bases or stadiums
@@ -43,7 +42,6 @@ public class Pitcher extends MyUnit {
         else if(computeDirection() != null) checkedDir = goDirection(averageDir(unitDirection, computeDirection()));
         else checkedDir = goDirection(unitDirection);
         /*If there is no target, also move random*/
-        /*If there is no target, also move random*/
         unitDirection = checkedDir;
         if (uc.canMove(checkedDir)) uc.move(unitDirection);
 
@@ -53,7 +51,6 @@ public class Pitcher extends MyUnit {
     Direction averageDir(Direction a, Direction b){
         return  Direction.getDirection((int)(a.dx+b.dx), (int)(a.dy+b.dy));
     }
-
 
     Direction goDirection (Direction dir){
         Direction rDir = dir.rotateRight(); Direction rrDir = rDir.rotateRight(); Direction rrrDir = rrDir.rotateRight();
