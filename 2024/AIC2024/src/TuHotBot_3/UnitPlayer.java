@@ -66,7 +66,7 @@ public class UnitPlayer {
 
             //Case in which we are an astronaut
             else if (!uc.isStructure()){
-                // Get the hot zones (assuming hotzones are used somewhere)
+                /*// Get the hot zones (assuming hotzones are used somewhere)
                 Location[] hotzones = uc.senseObjects(MapObject.HOT_ZONE, 25);
 
                 Location[] plantes = new Location[10];
@@ -79,7 +79,8 @@ public class UnitPlayer {
                 Location[] kits = new Location[10];
 
                 CarePackageInfo[] coses = uc.senseCarePackages(25);
-                for (CarePackageInfo cosa : coses) {
+                */
+                /*for (CarePackageInfo cosa : coses) {
                     if (cosa.getCarePackageType() == CarePackage.PLANTS) {
                         boolean afegit = false;
                         for (int i = 0; i < plantes.length; i++) {
@@ -95,9 +96,9 @@ public class UnitPlayer {
                         }
                     } else if (cosa.getCarePackageType() == CarePackage.OXYGEN_TANK) {
                         boolean afegit = false;
-                        for (int i = 0; i < oxigen.length; i++) {
-                            if (oxigen[i] == null) {
-                                oxigen[i] = cosa.getLocation();
+                        for (int i = 0; i < oxigens.length; i++) {
+                            if (oxigens[i] == null) {
+                                oxigens[i] = cosa.getLocation();
                                 afegit = true;
                                 System.out.println("Oxygen afegit a la posició: " + i);
                                 break;
@@ -185,7 +186,7 @@ public class UnitPlayer {
                             System.out.println("No hi ha espai per més survival kits.");
                         }
                     }
-                }
+                }*/
 
 
                 //---------------------------------
