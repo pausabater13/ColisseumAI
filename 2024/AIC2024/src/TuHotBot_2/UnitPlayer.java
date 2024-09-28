@@ -66,127 +66,101 @@ public class UnitPlayer {
 
             //Case in which we are an astronaut
             else if (!uc.isStructure()){
-                // Get the hot zones (assuming hotzones are used somewhere)
+                // Get the hot zones
                 Location[] hotzones = uc.senseObjects(MapObject.HOT_ZONE, 25);
 
-                Location[] plantes = new Location[10];
-                Location[] oxigens = new Location[10];
-                Location[] domes = new Location[10];
-                Location[] jumps = new Location[10];
-                Location[] radios = new Location[10];
-                Location[] settlements = new Location[10];
-                Location[] suits = new Location[10];
-                Location[] kits = new Location[10];
+                // Initialize arrays for each care package type
+                Location[] plantes = new Location[0];
+                Location[] oxigens = new Location[0];
+                Location[] domes = new Location[0];
+                Location[] jumps = new Location[0];
+                Location[] radios = new Location[0];
+                Location[] settlements = new Location[0];
+                Location[] suits = new Location[0];
+                Location[] kits = new Location[0];
+
+                // Sense care packages
+                CarePackageInfo[] coses = uc.senseCarePackages(25);
+                
+                // Process each care package
+                for (CarePackageInfo cosa : coses) {
+                    Location location = cosa.getLocation(); // Get location once
+
+                    if(cosa.getCarePackageType() == CarePackage.PLANTS){
+                        plantes = appendLocation(plantes, location);
+                        System.out.println("Plants Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.OXYGEN_TANK){
+                            oxigens = appendLocation(oxigens, location);
+                            System.out.println("Oxygen Tank Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.DOME){
+                            domes = appendLocation(domes, location);
+                            System.out.println("Dome Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.HYPERJUMP){
+                            jumps = appendLocation(jumps, location);
+                            System.out.println("Hyperjump Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.RADIO){
+                            radios = appendLocation(radios, location);
+                            System.out.println("Radio Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.REINFORCED_SUIT){
+                            suits = appendLocation(suits, location);
+                            System.out.println("Reinforced Suit Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.SETTLEMENT){
+                            settlements = appendLocation(settlements, location);
+                            System.out.println("Settlement Location: " + location);
+                    }
+                    if(cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT){
+                            kits = appendLocation(kits, location);
+                            System.out.println("Survival Kit Location: " + location);
+                    }
+                }
+                /*Location[] hotzones = uc.senseObjects(MapObject.HOT_ZONE, 25);
+
+                Location[] plantes = new Location[0];
+                Location[] oxigens = new Location[0];
+                Location[] domes = new Location[0];
+                Location[] jumps = new Location[0];
+                Location[] radios = new Location[0];
+                Location[] settlements = new Location[0];
+                Location[] suits = new Location[0];
+                Location[] kits = new Location[0];
 
                 CarePackageInfo[] coses = uc.senseCarePackages(25);
                 for (CarePackageInfo cosa : coses) {
-                    if (cosa.getCarePackageType() == CarePackage.PLANTS) {
-                        boolean afegit = false;
-                        for (int i = 0; i < plantes.length; i++) {
-                            if (plantes[i] == null) {
-                                plantes[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Element afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més plantes.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.OXYGEN_TANK) {
-                        boolean afegit = false;
-                        for (int i = 0; i < oxigen.length; i++) {
-                            if (oxigen[i] == null) {
-                                oxigen[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Oxygen afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més oxigen.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.DOME) {
-                        boolean afegit = false;
-                        for (int i = 0; i < domes.length; i++) {
-                            if (domes[i] == null) {
-                                domes[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Dome afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més domes.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.HYPERJUMP) {
-                        boolean afegit = false;
-                        for (int i = 0; i < jumps.length; i++) {
-                            if (jumps[i] == null) {
-                                jumps[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Hyperjump afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més hyperjumps.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.RADIO) {
-                        boolean afegit = false;
-                        for (int i = 0; i < radios.length; i++) {
-                            if (radios[i] == null) {
-                                radios[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Radio afegida a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més radios.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.REINFORCED_SUIT) {
-                        boolean afegit = false;
-                        for (int i = 0; i < suits.length; i++) {
-                            if (suits[i] == null) {
-                                suits[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Reinforced Suit afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més reinforced suits.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.SETTLEMENT) {
-                        boolean afegit = false;
-                        for (int i = 0; i < settlements.length; i++) {
-                            if (settlements[i] == null) {
-                                settlements[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Settlement afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més settlements.");
-                        }
-                    } else if (cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT) {
-                        boolean afegit = false;
-                        for (int i = 0; i < kits.length; i++) {
-                            if (kits[i] == null) {
-                                kits[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println("Survival Kit afegit a la posició: " + i);
-                                break;
-                            }
-                        }
-                        if (!afegit) {
-                            System.out.println("No hi ha espai per més survival kits.");
-                        }
+                    if(cosa.getCarePackageType() == CarePackage.PLANTS){
+                        plantes.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
                     }
-                }
-
+                    else if(cosa.getCarePackageType() == CarePackage.OXYGEN_TANK){
+                        oxigen.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.DOME){
+                        domes.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.HYPERJUMP){
+                        jumps.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.RADIO){
+                        radios.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.REINFORCED_SUIT){
+                        suits.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.SETTLEMENT){
+                        settlements.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT){
+                        kits.add(cosa.getLocation());
+                    }
+                }*/
 
                 //---------------------------------
                 //NEW--------------------------------------
@@ -242,5 +216,13 @@ public class UnitPlayer {
             }
             uc.yield(); // End of turn
         }
+    }
+
+    // Method to append a location to an array
+    private Location[] appendLocation(Location[] array, Location newLocation) {
+        Location[] newArray = new Location[array.length + 1]; // Create a new array
+        System.arraycopy(array, 0, newArray, 0, array.length); // Copy existing elements
+        newArray[array.length] = newLocation; // Add the new location
+        return newArray; // Return the new array
     }
 }
