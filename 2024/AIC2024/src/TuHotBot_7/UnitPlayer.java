@@ -1,4 +1,4 @@
-package TuHotBot_5;
+package TuHotBot_7;
 
 import aic2024.user.*;
 
@@ -123,11 +123,11 @@ public class UnitPlayer {
                 }
 
                 Direction dir = Direction.ZERO;
-                /*AstronautInfo[] enemies = uc.senseAstronauts(2, uc.getOpponent());
+                AstronautInfo[] enemies = uc.senseAstronauts(2, uc.getOpponent());
                 if(enemies.length > 0){
                     if(uc.canPerformAction(ActionType.SABOTAGE, uc.getLocation().directionTo(enemies[0].getLocation()),0))
-                        uc.performAction(ActionType.SABOTAGE, uc.getLocation().directionTo(enemies[0].getLocation()),0)
-                }*/
+                        uc.performAction(ActionType.SABOTAGE, uc.getLocation().directionTo(enemies[0].getLocation()),0);
+                }
                 if (uc.getAstronautInfo().getOxygen() <= 2) {
                     if (uc.canPerformAction(ActionType.TERRAFORM, Direction.ZERO, 0)){
                         uc.performAction(ActionType.TERRAFORM, Direction.ZERO, 0);
