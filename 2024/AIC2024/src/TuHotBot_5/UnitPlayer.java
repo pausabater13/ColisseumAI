@@ -117,13 +117,13 @@ public class UnitPlayer {
                     } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(plants[0]),0)){
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(plants[0]),0);
                     }
-                }/* else if(oxygen[0]!=null){
+                } else if(oxygens[0]!=null){
                     //Si estem al costat, recollim
-                    if (userLocation.distanceSquared(oxygen[0])<2){
-                        if(uc.canPerformAction(ActionType.RETRIEVE, userLocation.directionTo(oxygen[0]),0))
-                            uc.performAction(ActionType.RETRIEVE, userLocation.directionTo(oxygen[0]),0);//Recollim
-                    } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(oxygen[0]),0))
-                        uc.performAction(ActionType.MOVE, userLocation.directionTo(oxygen[0]),0);
+                    if (userLocation.distanceSquared(oxygens[0])<2){
+                        if(uc.canPerformAction(ActionType.RETRIEVE, userLocation.directionTo(oxygens[0]),0))
+                            uc.performAction(ActionType.RETRIEVE, userLocation.directionTo(oxygens[0]),0);//Recollim
+                    } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(oxygens[0]),0))
+                        uc.performAction(ActionType.MOVE, userLocation.directionTo(oxygens[0]),0);
                 } else if(other[0]!=null){
                     //Si estem al costat, recollim
                     if (userLocation.distanceSquared(other[0])<2){
@@ -135,9 +135,7 @@ public class UnitPlayer {
                     //Si estem al costat, recollim
                     if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(hotzones[0]),0))
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(hotzones[0]),0);
-                } */
-               
-                else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)),0)){
+                }  else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)),0)){
                     uc.performAction(ActionType.MOVE, userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)),0);
                 }
                     
