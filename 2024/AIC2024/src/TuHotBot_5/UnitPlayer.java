@@ -18,10 +18,23 @@ public class UnitPlayer {
                 //Spawn exactly one astronaut with 30 oxygens, if possible
                 for (Direction dir : directions){
                     int o2 = 30;//70 - (1000-uc.getRound())/1000*50;
-                    if (uc.canEnlistAstronaut(dir, o2, null)){
-                        uc.enlistAstronaut(dir, o2, null);
-                        break;
+                    //New-----------
+                    CarePackage cp = null;
+                    for (CarePackage c : CarePackage.values()){
+                        //System.out.println(c);
+                        boolean found = false;
+                        if(uc.getStructureInfo().getCarePackagesOfType(c)>0) {
+                            cp = c; found = true;
+                            if (uc.canEnlistAstronaut(dir, o2, cp)) uc.enlistAstronaut(dir, o2, cp);
+                        }
+                        if (found) break;
+
                     }
+                    
+                    if (uc.canEnlistAstronaut(dir, o2, cp)) uc.enlistAstronaut(dir, o2, cp);
+                    //else 
+                    //-------------------
+                    //if (uc.canEnlistAstronaut(dir, 02, null)) uc.enlistAstronaut(dir, 02, null);
                 }
             }
 
@@ -110,6 +123,11 @@ public class UnitPlayer {
                 }
 
                 Direction dir = Direction.ZERO;
+                /*AstronautInfo[] enemies = uc.senseAstronauts(2, uc.getOpponent());
+                if(enemies.length > 0){
+                    if(uc.canPerformAction(ActionType.SABOTAGE, uc.getLocation().directionTo(enemies[0].getLocation()),0))
+                        uc.performAction(ActionType.SABOTAGE, uc.getLocation().directionTo(enemies[0].getLocation()),0)
+                }*/
                 if (uc.getAstronautInfo().getOxygen() <= 2) {
                     if (uc.canPerformAction(ActionType.TERRAFORM, Direction.ZERO, 0)){
                         uc.performAction(ActionType.TERRAFORM, Direction.ZERO, 0);
