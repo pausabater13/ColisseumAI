@@ -9,20 +9,19 @@ public class UnitPlayer {
 
     public void run(UnitController uc) {
         // Code to be executed only at the beginning of the unit's lifespan
-        /*
-        // Print each direction
-        for (Direction direction : directions) {
-            System.out.println(direction);
-        }
-        */
+        
         while (true) {
             // Code to be executed every round
-            System.out.println(getOpponent());
-
+            
 
             //Pau
-
-
+            System.out.println(uc.getOpponent());
+            System.out.println(uc.getMapHeight());  // Altura del mapa
+            System.out.println(uc.getMapWidth());   // Amplada del mapa
+            /* // Print each direction
+            for (Direction direction : directions) {
+                System.out.println(direction);
+            } */
 
             //Joan
 
