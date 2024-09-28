@@ -57,6 +57,7 @@ public class UnitPlayer {
                             if (oxigens[i] == null) {
                                 oxigens[i] = cosa.getLocation();
                                 afegit = true;
+                                System.out.println(i);
                                 break;
                             }
                         }
