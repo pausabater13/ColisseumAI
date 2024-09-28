@@ -9,10 +9,13 @@ public class UnitPlayer {
 
     public void run(UnitController uc) {
         // Code to be executed only at the beginning of the unit's lifespan
-
+        // Print each direction
+        for (Direction direction : directions) {
+            System.out.println(direction);
+        }
         while (true) {
             // Code to be executed every round
-
+            
             //Case in which we are a HQ
             if (uc.isStructure() && uc.getType() == StructureType.HQ){
                 //Spawn exactly one astronaut with 30 oxygen, if possible
