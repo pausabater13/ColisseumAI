@@ -43,93 +43,57 @@ public class UnitPlayer {
                     if (cosa.getCarePackageType() == CarePackage.PLANTS) {
                         boolean afegit = false;
                         for (int i = 0; i < plantes.length; i++) {
-                            if (plantes[i] == null) {
-                                plantes[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (plantes[i] == null) {plantes[i] = cosa.getLocation();afegit = true; break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.OXYGEN_TANK) {
                         boolean afegit = false;
                         for (int i = 0; i < oxigens.length; i++) {
-                            if (oxigens[i] == null) {
-                                oxigens[i] = cosa.getLocation();
-                                afegit = true;
-                                System.out.println(i);
-                                break;
-                            }
+                            if (oxigens[i] == null) {oxigens[i] = cosa.getLocation();afegit = true;System.out.println(i);break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.DOME) {
                         boolean afegit = false;
                         for (int i = 0; i < domes.length; i++) {
-                            if (domes[i] == null) {
-                                domes[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (domes[i] == null) { domes[i] = cosa.getLocation(); afegit = true;break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.HYPERJUMP) {
                         boolean afegit = false;
                         for (int i = 0; i < jumps.length; i++) {
-                            if (jumps[i] == null) {
-                                jumps[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (jumps[i] == null) {jumps[i] = cosa.getLocation(); afegit = true; break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.RADIO) {
                         boolean afegit = false;
                         for (int i = 0; i < radios.length; i++) {
-                            if (radios[i] == null) {
-                                radios[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (radios[i] == null) {radios[i] = cosa.getLocation();afegit = true;break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.REINFORCED_SUIT) {
                         boolean afegit = false;
                         for (int i = 0; i < suits.length; i++) {
-                            if (suits[i] == null) {
-                                suits[i] = cosa.getLocation();
-                                afegit = true;break;
-                            }
+                            if (suits[i] == null) {suits[i] = cosa.getLocation();afegit = true;break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     } else if (cosa.getCarePackageType() == CarePackage.SETTLEMENT) {
                         boolean afegit = false;
                         for (int i = 0; i < settlements.length; i++) {
-                            if (settlements[i] == null) {
-                                settlements[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (settlements[i] == null) {settlements[i] = cosa.getLocation(); afegit = true; break;}
                         }
                         if (!afegit) {
                         }
                     } else if (cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT) {
                         boolean afegit = false;
                         for (int i = 0; i < kits.length; i++) {
-                            if (kits[i] == null) {
-                                kits[i] = cosa.getLocation();
-                                afegit = true;
-                                break;
-                            }
+                            if (kits[i] == null) { kits[i] = cosa.getLocation();afegit = true;break;}
                         }
-                        if (!afegit) {
-                        }
+                        if (!afegit) {}
                     }
                 }
+
+
+                
             }
             uc.yield(); // End of turn
         }

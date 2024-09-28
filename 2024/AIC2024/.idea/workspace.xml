@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ce52097c-bdff-4c37-81e1-6c4ed6eed711" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AIC2024.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jars.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.defaults" beforeDir="false" afterPath="$PROJECT_DIR$/build.defaults" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/TuHotBot_4/UnitPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/demoplayer/UnitPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-074431-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-145726-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-150156-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-150336-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/compile/TuHotBot_4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/compile/demoplayer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TuHotBot_4/UnitPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TuHotBot_4/UnitPlayer.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2mh4AAJJHgeP4mHAWtsiTURHLYe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/psabnac/Documents/ColisseumAI/2024/AIC2024",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce52097c-bdff-4c37-81e1-6c4ed6eed711" name="Changes" comment="" />
+      <created>1727515329209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1727515329209</updated>
+    </task>
+    <servers />
+  </component>
+</project>
