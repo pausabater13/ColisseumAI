@@ -15,10 +15,11 @@ public class UnitPlayer {
 
             //Case in which we are a HQ
             if (uc.isStructure() && uc.getType() == StructureType.HQ){
-                //Spawn exactly one astronaut with 30 oxygen, if possible
+                //Spawn exactly one astronaut with 30 oxygens, if possible
                 for (Direction dir : directions){
-                    if (uc.canEnlistAstronaut(dir, 30, null)){
-                        uc.enlistAstronaut(dir, 30, null);
+                    int o2 = 70 - (1000-uc.getRound())/1000*50;
+                    if (uc.canEnlistAstronaut(dir, o2, null)){
+                        uc.enlistAstronaut(dir, o2, null);
                         break;
                     }
                 }
@@ -112,9 +113,13 @@ public class UnitPlayer {
                 if(plants[0]!=null){
                     //Si estem al costat, recollim
                     if (userLocation.distanceSquared(plants[0])<2){
+                        //if(uc.getOxygen())
                         if(uc.canPerformAction(ActionType.RETRIEVE, userLocation.directionTo(plants[0]),0))
                             uc.performAction(ActionType.RETRIEVE, userLocation.directionTo(plants[0]),0);//Recollim
-                    } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(plants[0]),0)){
+                    } else {
+                        dir = userLocation.directionTo(plants[0]);
+                        while(!uc.canPerformAction(ActionType.MOVE, dir, 0))
+                            dir = dir.rotateRight();
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(plants[0]),0);
                     }
                 } else if(oxygens[0]!=null){
@@ -122,24 +127,55 @@ public class UnitPlayer {
                     if (userLocation.distanceSquared(oxygens[0])<2){
                         if(uc.canPerformAction(ActionType.RETRIEVE, userLocation.directionTo(oxygens[0]),0))
                             uc.performAction(ActionType.RETRIEVE, userLocation.directionTo(oxygens[0]),0);//Recollim
-                    } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(oxygens[0]),0))
+                    } else {
+                        dir = userLocation.directionTo(oxygens[0]);
+                        while(!uc.canPerformAction(ActionType.MOVE, dir, 0))
+                            dir = dir.rotateRight();
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(oxygens[0]),0);
+                    }
                 } else if(other[0]!=null){
                     //Si estem al costat, recollim
                     if (userLocation.distanceSquared(other[0])<2){
                         if(uc.canPerformAction(ActionType.RETRIEVE, userLocation.directionTo(other[0]),0))
                             uc.performAction(ActionType.RETRIEVE, userLocation.directionTo(other[0]),0);//Recollim
-                    } else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(other[0]),0))
+                    } else {
+                        dir = userLocation.directionTo(other[0]);
+                        while(!uc.canPerformAction(ActionType.MOVE, dir, 0))
+                            dir = dir.rotateRight();
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(other[0]),0);
-                } else if(hotzones[0]!=null){
+                    }
+                } /*else if(hotzones[0]!=null){
                     //Si estem al costat, recollim
                     if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(hotzones[0]),0))
                         uc.performAction(ActionType.MOVE, userLocation.directionTo(hotzones[0]),0);
-                }  else if(uc.canPerformAction(ActionType.MOVE, userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)),0)){
-                    uc.performAction(ActionType.MOVE, userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)),0);
+                }  */
+               //If we have 1 or 2 oxygens left, terraform my tile (alternatively, terraform a random tile)
+               else if (uc.getAstronautInfo().getOxygen() <= 2) {
+                    if (uc.canPerformAction(ActionType.TERRAFORM, Direction.ZERO, 0)){
+                        uc.performAction(ActionType.TERRAFORM, Direction.ZERO, 0);
+                    }
+                    else {
+                        int dirIndex = (int)(uc.getRandomDouble()*8.0);
+                        dir = directions[dirIndex];
+                        while(!uc.canPerformAction(ActionType.TERRAFORM, dir, 0)){
+                            dir = dir.rotateRight();
+                        }
+                    }
+                } else {
+                    int id = uc.getID()%5;
+                    Direction direction = Direction.ZERO;
+                    switch (id) {
+                        case 1: direction = userLocation.directionTo(new Location(uc.getMapWidth()-5, uc.getMapHeight()-5)); break;
+                        case 2: direction = userLocation.directionTo(new Location(5, uc.getMapHeight()-5)); break;
+                        case 3: direction = userLocation.directionTo(new Location(uc.getMapWidth()-5, 5)); break;
+                        case 4: direction = userLocation.directionTo(new Location(5, 5)); break;
+                        case 5: direction = userLocation.directionTo(new Location(uc.getMapWidth()/2, uc.getMapHeight()/2)); break;
+                    }
+
+                    while(!uc.canPerformAction(ActionType.MOVE, direction, 0))
+                        direction = direction.rotateRight();
+                    uc.performAction(ActionType.MOVE, direction,0);
                 }
-                    
-                
             }
             uc.yield(); // End of turn
         }

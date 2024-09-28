@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce52097c-bdff-4c37-81e1-6c4ed6eed711" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AIC2024.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jars.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.defaults" beforeDir="false" afterPath="$PROJECT_DIR$/build.defaults" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/TuHotBot_4/UnitPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/demoplayer/UnitPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20240928-074431-demoplayer-nullplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20240928-145726-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20240928-150156-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/20240928-150336-TuHotBot_4-demoplayer-Basic1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/compile/TuHotBot_4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/compile/demoplayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TuHotBot_4/UnitPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TuHotBot_4/UnitPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/TuHotBot_5/UnitPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/TuHotBot_5/UnitPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-155856-TuHotBot_5-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-155958-TuHotBot_5-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/games/20240928-160226-TuHotBot_5-demoplayer-Basic1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TuHotBot_5/UnitPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TuHotBot_5/UnitPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +28,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/psabnac/Documents/ColisseumAI/2024/AIC2024",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/psabnac/Documents/ColisseumAI/2024/AIC2024&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
