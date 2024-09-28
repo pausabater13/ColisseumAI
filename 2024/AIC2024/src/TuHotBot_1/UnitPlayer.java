@@ -66,6 +66,7 @@ public class UnitPlayer {
 
             //Case in which we are an astronaut
             else if (!uc.isStructure()){
+                //OLD----------------------------------
                 //move randomly, turning right if we can't move.
                 int dirIndex = (int)(uc.getRandomDouble()*8.0);
                 Direction randomDir = directions[dirIndex];
@@ -78,6 +79,25 @@ public class UnitPlayer {
                     randomDir = randomDir.rotateRight();
 
                 }
+                //---------------------------------
+                //NEW--------------------------------------
+                CarePackageInfo[] cpInfo = uc.senseCarePackages(GameConstants.ASTRONAUT_VISION_RANGE);
+                Location userLocation = uc.getLocation();
+                /*Arrays.sort(cpInfo, new Comparator<CarePackageInfo>() {
+                    @Override
+                    public int compare(CarePackageInfo a, CarePackageInfo b) {
+                        int distA = a.getLocation().distanceSquared(userLocation);
+                        int distB = b.getLocation().distanceSquared(userLocation);
+                        return Integer.compare(distA, distB); // Compare distances, sorting in ascending order
+                    }
+                });*/
+                /*System.out.println("CP distances:");
+                for (CarePackageInfo cp : cpInfo){
+                    System.out.println(cp.getLocation().distanceSquared(userLocation));
+                }
+                System.out.println("------------");*/
+                //------------------------------------
+                
                 //Check if there are Care Packages at an adjacent tile. If so, retrieve them.
                 for (Direction dir : directions){
                     Location adjLocation = uc.getLocation().add(dir);
