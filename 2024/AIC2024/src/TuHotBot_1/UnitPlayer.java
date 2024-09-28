@@ -15,6 +15,7 @@ public class UnitPlayer {
             
 
             //Pau
+            //System.out.println(uc.getTeam());
             //System.out.println(uc.getOpponent());
             //System.out.println(uc.getMapHeight());  // Altura del mapa
             //System.out.println(uc.getMapWidth());   // Amplada del mapa
@@ -28,6 +29,31 @@ public class UnitPlayer {
 
             //Case in which we are a HQ
             if (uc.isStructure() && uc.getType() == StructureType.HQ){
+                //NEW (PAU)---------------------------------
+                /*//Spawn exactly one astronaut with 30 oxygen, if possible
+                for (Direction dir : directions){
+                    CarePackage cp;
+                    for (CarePackage c : CarePackage.values()){
+                        //System.out.println(c);
+                        if(uc.getStructureInfo().getCarePackagesOfType(c)>0){
+                            cp = c;
+                            break;
+                        }
+                    }
+                    if (uc.canEnlistAstronaut(dir, 30, cp)){
+                        uc.enlistAstronaut(dir, 30, cp);
+                        break;
+                    }
+                    else {
+                        if (uc.canEnlistAstronaut(dir, 30, null)){
+                        uc.enlistAstronaut(dir, 30, null);
+                        break;
+                    }
+                    }
+                }
+                */
+                //------------------------------------
+                //OLD:-------------------------------
                 //Spawn exactly one astronaut with 30 oxygen, if possible
                 for (Direction dir : directions){
                     if (uc.canEnlistAstronaut(dir, 30, null)){
@@ -35,6 +61,7 @@ public class UnitPlayer {
                         break;
                     }
                 }
+                //-------------------------------
             }
 
             //Case in which we are an astronaut
