@@ -1,4 +1,4 @@
-package demoplayer;
+package TuHotBot_1;
 
 import aic2024.user.*;
 
