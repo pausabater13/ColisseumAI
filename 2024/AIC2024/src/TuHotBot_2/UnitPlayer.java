@@ -66,31 +66,88 @@ public class UnitPlayer {
 
             //Case in which we are an astronaut
             else if (!uc.isStructure()){
-                hotzones = new Location[];
-                hotzones = senseObjects(MapObject HOT_ZONE, float 25);
+                // Get the hot zones (assuming hotzones are used somewhere)
+                Location[] hotzones = uc.senseObjects(MapObject.HOT_ZONE, 25);
 
-                plantes = new Location[];
-                oxigens = new Location[];
-                domes = new Location[];
-                jumps = new Location[];
-                radios = new Location[];
-                settlements = new Location[];
-                suits = new Location[];
-                kits = new Location[];
+                // Use ArrayList for dynamic size management
+                ArrayList<Location> plantes = new ArrayList<>();
+                ArrayList<Location> oxigens = new ArrayList<>();
+                ArrayList<Location> domes = new ArrayList<>();
+                ArrayList<Location> jumps = new ArrayList<>();
+                ArrayList<Location> radios = new ArrayList<>();
+                ArrayList<Location> settlements = new ArrayList<>();
+                ArrayList<Location> suits = new ArrayList<>();
+                ArrayList<Location> kits = new ArrayList<>();
 
-                CarePackageInfo[] coses = senseCarePackages(float 25);
+                // Sense care packages
+                CarePackageInfo[] coses = uc.senseCarePackages(25);
+                
+                for (CarePackageInfo cosa : coses) {
+                    Location location = cosa.getLocation(); // Store the location to avoid calling the method multiple times
+
+                    switch (cosa.getCarePackageType()) {
+                        case CarePackage.PLANTS:
+                            plantes.add(location);
+                            System.out.println("Plants Location: " + location);
+                            break;
+                        case CarePackage.OXYGEN_TANK:
+                            oxigens.add(location);
+                            System.out.println("Oxygen Tank Location: " + location);
+                            break;
+                        case CarePackage.DOME:
+                            domes.add(location);
+                            System.out.println("Dome Location: " + location);
+                            break;
+                        case CarePackage.HYPERJUMP:
+                            jumps.add(location);
+                            System.out.println("Hyperjump Location: " + location);
+                            break;
+                        case CarePackage.RADIO:
+                            radios.add(location);
+                            System.out.println("Radio Location: " + location);
+                            break;
+                        case CarePackage.REINFORCED_SUIT:
+                            suits.add(location);
+                            System.out.println("Reinforced Suit Location: " + location);
+                            break;
+                        case CarePackage.SETTLEMENT:
+                            settlements.add(location);
+                            System.out.println("Settlement Location: " + location);
+                            break;
+                        case CarePackage.SURVIVAL_KIT:
+                            kits.add(location);
+                            System.out.println("Survival Kit Location: " + location);
+                            break;
+                    }
+                }
+                /*Location[] hotzones = uc.senseObjects(MapObject.HOT_ZONE, 25);
+
+                Location[] plantes = new Location[0];
+                Location[] oxigens = new Location[0];
+                Location[] domes = new Location[0];
+                Location[] jumps = new Location[0];
+                Location[] radios = new Location[0];
+                Location[] settlements = new Location[0];
+                Location[] suits = new Location[0];
+                Location[] kits = new Location[0];
+
+                CarePackageInfo[] coses = uc.senseCarePackages(25);
                 for (CarePackageInfo cosa : coses) {
                     if(cosa.getCarePackageType() == CarePackage.PLANTS){
                         plantes.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
                     }
                     else if(cosa.getCarePackageType() == CarePackage.OXYGEN_TANK){
                         oxigen.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
                     }
                     else if(cosa.getCarePackageType() == CarePackage.DOME){
                         domes.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
                     }
                     else if(cosa.getCarePackageType() == CarePackage.HYPERJUMP){
                         jumps.add(cosa.getLocation());
+                        System.out.println(cosa.getLocation());
                     }
                     else if(cosa.getCarePackageType() == CarePackage.RADIO){
                         radios.add(cosa.getLocation());
@@ -104,7 +161,7 @@ public class UnitPlayer {
                     else if(cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT){
                         kits.add(cosa.getLocation());
                     }
-                }
+                }*/
 
                 //---------------------------------
                 //NEW--------------------------------------
@@ -124,7 +181,7 @@ public class UnitPlayer {
                 }
                 System.out.println("------------");*/
                 //------------------------------------
-                
+                /*
                 //Check if there are Care Packages at an adjacent tile. If so, retrieve them.
                 for (Direction dir : directions){
                     Location adjLocation = uc.getLocation().add(dir);
@@ -156,6 +213,7 @@ public class UnitPlayer {
                         }
                     }
                 }
+                */
             }
             uc.yield(); // End of turn
         }
