@@ -66,19 +66,46 @@ public class UnitPlayer {
 
             //Case in which we are an astronaut
             else if (!uc.isStructure()){
-                //OLD----------------------------------
-                //move randomly, turning right if we can't move.
-                int dirIndex = (int)(uc.getRandomDouble()*8.0);
-                Direction randomDir = directions[dirIndex];
-                for (int i = 0; i < 8; ++i){
-                    //Note that the 'value' of the following command is irrelevant.
-                    if (uc.canPerformAction(ActionType.MOVE, randomDir, 0)){
-                        uc.performAction(ActionType.MOVE, randomDir, 0);
-                        break;
-                    }
-                    randomDir = randomDir.rotateRight();
+                hotzones = new Location[];
+                hotzones = senseObjects(MapObject HOT_ZONE, float 25);
 
+                plantes = new Location[];
+                oxigens = new Location[];
+                domes = new Location[];
+                jumps = new Location[];
+                radios = new Location[];
+                settlements = new Location[];
+                suits = new Location[];
+                kits = new Location[];
+
+                CarePackageInfo[] coses = senseCarePackages(float 25);
+                for (CarePackageInfo cosa : coses) {
+                    if(cosa.getCarePackageType() == CarePackage.PLANTS){
+                        plantes.add(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.OXYGEN_TANK){
+                        oxigen.add(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.DOME){
+                        domes.add(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.HYPERJUMP){
+                        jumps.add(cosa.getLocation());
+                    }
+                    else if(cosa.getCarePackageType() == CarePackage.RADIO){
+                        radios.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.REINFORCED_SUIT){
+                        suits.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.SETTLEMENT){
+                        settlements.add(cosa.getLocation());
+                    }                    
+                    else if(cosa.getCarePackageType() == CarePackage.SURVIVAL_KIT){
+                        kits.add(cosa.getLocation());
+                    }
                 }
+
                 //---------------------------------
                 //NEW--------------------------------------
                 CarePackageInfo[] cpInfo = uc.senseCarePackages(GameConstants.ASTRONAUT_VISION_RANGE);
